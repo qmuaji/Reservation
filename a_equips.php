@@ -134,7 +134,6 @@ $no = $offset+1;
 			
 			if ($noPage < $jmlPage) echo "<a class='button alt small' href=$_SERVER[PHP_SELF]?page=".($noPage+1)."><span class='icon fa-chevron-right'></span></a>";
 			?>
-			<hr>
 		</div>		
 	</div>
 </div>

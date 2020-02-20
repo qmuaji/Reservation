@@ -1,8 +1,4 @@
 <?php
-if(eregi('general.php', $_SERVER['PHP_SELF'])) {
-	header("Location: ./");
-	exit();
-}
 
 function getStudio($kode) {
 
@@ -100,7 +96,7 @@ function rupiah($angka) {
 }
 
 function email($to, $subject, $isi) {
-	mail($to, $subject, $isi, 'From: admin@lansmusikstudio.hol.es');
+	mail($to, $subject, $isi, 'From: muaji@qmuaji.com');
 }
 
 function loggedInRedirect() {

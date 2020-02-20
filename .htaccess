@@ -1,17 +1,12 @@
 RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<FilesMatch "\.(php4|php5|php3|php2|php|phtml)$">
+  SetHandler application/x-httpd-alt-php56___lsphp
+</FilesMatch>
+#application/x-httpd-alt-php44___lsphp
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteRule ^(.*)$ /myproject/lanStudio/my.php?username=$1
-
-#versi idhostinger
-#Options +FollowSymlinks
-#RewriteEngine on
-#RewriteBase /
-
-#RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^(.*)$ /my.php?username=$1
+RewriteRule ^(.*)$ /home/qmuajico/reservasi.qmuaji.com/my.php?username=$1

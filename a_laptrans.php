@@ -44,7 +44,7 @@ $no = 1;
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3>Laporan Transaksi Penyewaan Studio</h3>
+		<h3>Laporan Transaksi Penyewaan</h3>
 
 	</div>
 <div class="panel-body">

@@ -1,0 +1,43 @@
+10 x
+11 x
+12 x
+13 x
+14 x
+15 x
+16
+17
+18 x
+19 x
+20
+21 x
+22 x
+
+10 - 22 = 12 jam
+
+proses isi saldo
+--------------------------
+1. gabung
+
+2. isi saldo ke rekening atau langsung tunai ke administrator.
+
+3
+
+
+pelanggan memesan studio.
+---------------------------
+1. pilih studio
+	tentukan tanggal dan jam tersedia.
+	jika tidak ada jadwal yang available maka tulis jam dan durasi
+	
+2. masukan captcha bila perlu.
+
+3. otomastis cek deposito.
+	jika deposito kurang maka tidak dapat memesan
+	dan redirect ke halaman ini saldo.
+
+4. pesan studio 
+	tampilkan kode booking dan cetak.
+
+
+Proses Maintenance
+--------------------------------

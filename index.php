@@ -4,7 +4,7 @@ include 'includes/_head.php';
 
 ?>
 <body class="landing">
-	<header id="header" class="alt">
+	<header id="header" class="alt"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<?php 
 	include 'includes/_menu.php';
 	if(loggedIn()) {
@@ -36,28 +36,28 @@ include 'includes/_head.php';
 	?>
 	
 		<section id="banner">
-			<h2>Lan's Musik <i class="icon fa-music"></i> Studio</h2>
+			<h2>Lan's <i class="icon fa-cube"></i> Reservation</h2>
 	<div id="page-wrapper">
 
 		<?php
 		if(loggedIn()) {
 			?>
-			<h4><?php echo $userData['email']; if(!empty($userData['username'])) echo ' | ', $userData['username'] ?> </h4>
+			<h4>Hi, welcome <?= $userData['first_name']; if(!empty($userData['username'])) ?>.. </h4>
 			<?php 
 			if(hasAccess($_SESSION['user_id'], 0)) {
 			?>
 			
 			<ul class="actions">
-				<li><a href="<?php if(!empty($userData['username'])) echo $userData['username']; else echo $userData['email'] ?>" class="button icon fa-cube">Profil</a></li>
-				<li><a href="penyewaan.php" class="button icon fa-book">Pemesanan Studio</a></li>
+				<li><a href="<?php if(!empty($userData['username'])) echo $userData['username']; else echo $userData['email'] ?>" class="button icon fa-user">Profil</a></li>
+				<li><a href="penyewaan.php" class="button icon fa-caret-right">My Reservation</a></li>
 			</ul>
 			<?php
 			}
 		} else {
 			?>
-			<h3>Gabung <i class="icon fa-angle-right"></i> Pilih <i class="icon fa-angle-right"></i> Latihan.</h3>
+			<h5>Gabung • Pilih • Pesan</h5>
 			<ul class="actions">
-				<li><a href="signup.php" class="button special">GABUNG</a></li>
+				<li><a href="signup.php" class="button special">Gabung</a></li>
 				<li><a href="login.php" class="button">Log In</a></li>
 			</ul>
 			<?php
@@ -76,9 +76,9 @@ include 'includes/_head.php';
 			<div class="row">
 				<div class="6u 12u(narrower)">
 					<section class="box special">
-						<span class="image featured"><img src="images/2.jpg" alt="" /></span>
-						<h3>Studio Latihan</h3>
-						<p>Lan's Musik Studio adalah rental studio musik latihan band yang dilengkapi dengan equipment terkini dan di support oleh staff yang berpengalaman dan profesional. Studio kami berukuran 6x6 dan ruang operator berukuran 2x5.</p>
+						<span class="image featured"><img src="images/ruang2.jpeg" alt="" /></span>
+						<h3>Room Studios</h3>
+						<p>Lan's  adalah rental ruangan atau rooms reservation yang dilengkapi dengan equipment terkini dan di support oleh staff yang berpengalaman dan profesional. Studio kami berukuran 6x6 dan ruang operator berukuran 10x5.</p>
 						<ul class="actions">
 							<li><a href="studios.php" class="button alt">Lihat</a></li>
 						</ul>
@@ -86,8 +86,8 @@ include 'includes/_head.php';
 				</div>
 				<div class="6u 12u(narrower)">
 					<section class="box special">
-						<span class="image featured"><img src="images/theta.jpg" alt="" /></span>
-						<h3>Profil Band</h3>
+						<span class="image featured"><img src="images/ruang1.jpeg" alt="" /></span>
+						<h3>Our Members</h3>
 						<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
 						<ul class="actions">
 							<li><a href="profiles.php" class="button alt">Lihat</a></li>

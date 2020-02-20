@@ -87,37 +87,13 @@ $no = $offset+1;
 
 		</div>
 	</form>
-	<hr>
-	<div class="row">
-		<p>
-			Lan's Musik Studio adalah rental studio musik latihan band yang dilengkapi dengan equipment terkini dan di support oleh staff yang berpengalaman dan profesional. 
-			Studio kami berukuran 6x6 dan ruang operator berukuran 2x5. Equipment yang kami gunakan adalah sebagai berikut:
-		</p>
-		<div class="4u">
-			<ul>
-				<li>Allen Heath QU 24</li>
-				<li>Marshall JCM900+Cab</li>
-				<li>AMT SS10 + Marshall Cab</li>
-				<li>Ashdown ABM 500 EVO III</li>
-				<li>Ashdown Cabinet 410</li>
-				<li>Rolland RD300NX</li>
-			</ul>
-		</div> 
-		<div class="4u">
-			<ul>
-				<li>Jackson Guitar</li>
-				<li>Ibanez Guitar</li>
-				<li>Squier Bass Guitar</li>
-				<li>Pearl Vision Drumset</li>
-				<li>Double Pedal (Available upon request)</li>
-				<li>Zildjian Cymbals</li>
-			</ul>
-		</div>
-		<div class="4u">
-			<ul>
-				<li>Shure Mic</li>
-			</ul>
-		</div>		
-	</div>
+	<!--<hr>-->
+	<!--<div class="row">-->
+	<!--	<p>-->
+	<!--		Lan's Musik Studio adalah rental studio musik latihan band yang dilengkapi dengan equipment terkini dan di support oleh staff yang berpengalaman dan profesional. -->
+	<!--		Studio kami berukuran 6x6 dan ruang operator berukuran 2x5. Equipment yang kami gunakan adalah sebagai berikut:-->
+	<!--	</p>-->
+	
+	<!--</div>-->
 </div>
 <?php include 'includes/_footer.php' ?>

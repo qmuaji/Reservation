@@ -15,13 +15,13 @@ if(isset($_SESSION['cetakNota'])){
 <div class="alert">Terimakasih, pemesanan kamu berhasil <i class="icon fa-smile-o"></i> periksa kembali detail pemesanan kamu di bawah ini!</div>
 <div class="container" style="margin-top:-80px" id="main">
 	<div class="box">
-		<h2 align="center" style="margin-top:-40px">Lan's Musik <i class="icon fa-music"></i> Studio <br> #<?php echo $row['book_code'] ?></h2>
+		<h2 align="center" style="margin-top:-40px">Lan's <i class="icon fa-cube"></i> Reservation <br> #<?php echo $row['book_code'] ?></h2>
 	<table>
 		<tr>
-			<td width="130px">
+			<td width="180px">
 				Kode Pesan <br>
 				Tgl Pesan <br>
-				Nama Studio				
+				Nama Ruangan				
 			</td>
 			<td>
 				: <?php echo $row['book_code'] ?> <br>
@@ -29,7 +29,7 @@ if(isset($_SESSION['cetakNota'])){
 				: <?php echo $row['studio_name'] ?>				
 			</td>
 			
-			<td widtd="90px">
+			<td width="90px">
 				Nama <br>
 				Tlp <br>
 				Email <br>				
@@ -44,7 +44,7 @@ if(isset($_SESSION['cetakNota'])){
 
 	<table class="alt" style="margin-top:-25px">
 		<tr align="center">
-			<td>Jam Latihan</td>
+			<td>Jam Sewa</td>
 			<td>Harga / jam (Rp)</td>
 			<td>Total Bayar (Rp)</td>
 		</tr>
@@ -64,7 +64,7 @@ if(isset($_SESSION['cetakNota'])){
 		</tr>
 	</table>
 	<a href="cetakNota.php" class="button fit icon fa-print" target="blank">Cetak</a>
-	<p>* Bukti pemesanan akan hangus jika tidak digunakan pada jam yang telah ditentukan!</p>
+	<sub>*Bukti pemesanan akan hangus jika tidak digunakan pada jam yang telah ditentukan!</sub>
 	</div>
 </div>
 <?php

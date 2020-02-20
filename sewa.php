@@ -27,7 +27,7 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 		$requiredFields = array('email', 'tlp', 'book_date', 'pesan');
 		foreach($_POST as $key=>$value) {
 			if(empty($value) && in_array($key, $requiredFields)){
-				$alert[] = "Silahkan isi bagian yang ditandai * <i class='icon fa-smile-o'></i>";
+				$alert[] = "Silakan isi bagian yang ditandai * <i class='icon fa-smile-o'></i>";
 				break 1;
 			}
 		}
@@ -49,7 +49,7 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 			} elseif($total > mysql_result($balance, 0)) { // validasi balance dulu brooooo!!!
 				$alert[] = "Maaf, Saldo kamu tidak cukup! <a class='button small special' href='saldo.php'>Klik disini untuk menambah saldo</a>";
 			} elseif($q == 0) { // pesan!!!
-				$alert[] = "Silahkan Pilih Jam Latihan.";
+				$alert[] = "Silakan pilih jam sewa.";
 			} elseif(strlen($tlp) > 16 || strlen($tlp) < 6 || !is_numeric($tlp)) {
 				$alert[] = "No. tlp tidak valid!";
 			} else {
@@ -59,7 +59,7 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 										AND studio_id=$studio_id
 										AND i_time=$i_time");
 					if(mysql_result($cekBook, 0) >= 1) {
-						$alert[] = "Oops, Pemesanan Gagal. Silahkan ulangi! <i class='icon fa-frown-o'></i>";
+						$alert[] = "Oops, Pemesanan Gagal, silakan ulangi lagi setelah beberapa saat <i class='icon fa-frown-o'></i>";
 						break 1;
 					}
 				}
@@ -92,11 +92,11 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 
 				if($b && $t && $s) {
 					$_SESSION['cetakNota'] = md5($book_code);
-					email($email , 'Pemesanan Lans Musik Studio', "Dear {$email}, \n\nTerimakasih telah melakukan pemesanan :) \n Silahkan konfirmasi dengan kode pemesanan: {$book_code}\n\n~Lans Musik Studio");
+					email($email , 'Pemesanan Lans Musik Studio', "Dear {$email}, \n\nTerimakasih telah melakukan pemesanan :) \n Silakan konfirmasi dengan kode pemesanan: {$book_code}\n\n~Lans Musik Studio");
 					header("Location: nota.php");
 					exit();
 				} else {
-					$alert[] = "Maaf, Pemesanan Gagal. Silahkan ulangi! <i class='icon fa-frown-o'></i>";
+					$alert[] = "Maaf, Pemesanan Gagal. Silakan ulangi! <i class='icon fa-frown-o'></i>";
 				}
 			}
 		} 
@@ -111,37 +111,38 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 	<div style="margin-top:-50px" id="main" class="container">					
 		<div class="row">
 			<div class="4u 12u(mobile)">
-				<div class="box special">							
-					<span class="image featured"><img src="<?php echo $row['img'] ?>" alt="Lan's Musik" /></span>	
-					<h3><?php echo $row['name'] ?></h3>
-					Rp <?php echo rupiah($row['price']) ?>/jam
-					<!-- <input type="hidden" name=""value="<?php echo $studio_id ?>" id="studio_id"> -->
-					<!-- <input type="hidden" name=""value="<?php echo $row['price'] ?>" id="price"> -->
-				</div>					
+				<div class="box">							
+					<span class="image featured"><img src="<?= $row['img'] ?>" alt="Lan's Reservation" /></span>	
+					<h3><?= $row['name'] ?></h3>
+					<h4>Rp. <?= rupiah($row['price']) ?> /jam</h4>
+					<sub> <?= $row['description'] ?> </sub>
+					<!-- <input type="hidden" name=""value="<?= $studio_id ?>" id="studio_id"> -->
+					<!-- <input type="hidden" name=""value="<?= $row['price'] ?>" id="price"> -->
+				</div>
 			</div>
-				
+			
 			<div class="8u 12u(mobile)">
 				<div class="box">					
 					<form action="" method="post" autocomplete="off">			
 						<div class="row">
-							<div class="7u 12u">	
-								Tanggal Pesan* (tttt-bb-hh)&nbsp;<b class="icon fa-calendar"></b>
-								<input type="date" name="book_date" onChange="jadwal_jam()" max="<?php echo $dateMax ?>" min="<?php echo $dateMin ?>" value="<?php echo date('Y-m-d') ?>" id="dates">
+							<div class="6u 12u">	
+								Tanggal Sewa* &nbsp;<b class="icon fa-calendar"></b>
+								<input type="date" name="book_date" onChange="jadwal_jam()" max="<?= $dateMax ?>" min="<?= $dateMin ?>" value="<?= date('Y-m-d') ?>" id="dates">
 								Nama*
-								<input type="text" name="first_name" placeholder="Nama" value="<?php echo $first_name ?>" required minlength="3" maxlength="32">
+								<input type="text" name="first_name" placeholder="Nama" value="<?= $first_name ?>" required minlength="3" maxlength="32">
 								Email* &nbsp;<b class="icon fa-envelope"></b>	
-								<input type="email" name="email" placeholder="Email" value="<?php echo $email ?>" required maxlength="30">
+								<input type="email" name="email" placeholder="Email" value="<?= $email ?>" required maxlength="30">
 								Tlp* &nbsp;<b class="icon fa-phone"></b>	
-								<input type="text" name="tlp" placeholder="Tlp" value="<?php echo $tlp ?>" required minlength="8" maxlength="16">
+								<input type="text" name="tlp" placeholder="Tlp" value="<?= $tlp ?>" required minlength="8" maxlength="16">
 							<!-- 	Spesial Request	
 								<textarea name="req" id="" cols="10" rows="15"></textarea> -->
 
-								<input type="submit" value="Pesan" class="fit special">					
-								<div class="alert">*Pastikan data pemesanan sudah sesuai, karena pemesanan tidak dapat dibatalkan!</div>
+								<input type="submit" value="Pesan" onclick="return confirm('Pesan ruangan <?= $row['name'] ?>?')" class="fit special">					
+								<sub><blockquote>*Pastikan data pemesanan sudah sesuai, pemesanan tidak dapat dibatalkan.</blockquote></sub>
 							</div>	
-							<div class="5u 12u">	
-							<h3>Jam Latihan</h3>
-								<span id="jam"><span style='color:red'>Pilih tanggal dulu!</span></span>
+							<div class="6u 12u">	
+							<h3>Jam Sewa</h3>
+								<span id="jam"><span style='color:red'>Silakan pilih tanggalnya.</span></span>
 							</div>
 						</div>		
 					</form>
@@ -151,20 +152,23 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 	</div>
 
 <?php
+
 } include 'includes/_footer.php';
+
 ?>
-	<script>
-		function jadwal_jam() {
-			var dates=$("#dates").val();
-			var studio_id=<?php echo $studio_id ?>;
-			$.ajax({
-				type:"GET",
-				url:"jadwal_jam.php",
-				data:"dates="+dates+"&studio_id="+studio_id,
-				success: function(html) {
-					$("#jam").html(html);
-				}
-			});
-		}
-		$(document).ready(function(){jadwal_jam()});
-	</script>
+
+<script>
+	function jadwal_jam() {
+		var dates=$("#dates").val();
+		var studio_id=<?= $studio_id ?>;
+		$.ajax({
+			type:"GET",
+			url:"jadwal_jam.php",
+			data:"dates="+dates+"&studio_id="+studio_id,
+			success: function(html) {
+				$("#jam").html(html);
+			}
+		});
+	}
+	$(document).ready(function(){jadwal_jam()});
+</script>

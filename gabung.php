@@ -1,8 +1,8 @@
 <?php 
-if(eregi('gabung.php', $_SERVER['PHP_SELF'])) {
-	header("Location: ./");
-	exit();
-}
+//if(eregi('gabung.php', $_SERVER['PHP_SELF'])) {
+//	header("Location: ./");
+//	exit();
+//}
 
 if(!empty($_POST) ) {
 	$email 		= sanitize($_POST['email']);

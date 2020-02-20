@@ -63,9 +63,9 @@ if(!empty($alert)) echo outputErrors($alert);
 					<h3>Ganti Password</h3>
 					Password sekarang*
 					<input type="password" name="oldPassword" placeholder="Password sekarang" minlength="6">
-					Password baru*
+					Password baru
 					<input type="password" name="newPassword" placeholder="Password baru" minlength="6">	
-					Konfirmasi password*
+					Konfirmasi password
 					<input type="password" name="confirmPassword" placeholder="Konfirmasi password" minlength="6">	
 					<input type="submit" value="Simpan" class="fit">	
 				</form>
