@@ -92,7 +92,7 @@ if(isset($_GET['studio_id']) && !empty($_GET['studio_id'])) {
 
 				if($b && $t && $s) {
 					$_SESSION['cetakNota'] = md5($book_code);
-					email($email , 'Pemesanan Lan\'s Rooms Reservation ' . $book_date, "Dear {$email}, \n\nTerimakasih telah melakukan pemesanan ruangan ".$row['name']." :) \nSilakan konfirmasi dengan kode pemesanan: {$book_code}\n\n~Lan's Rooms Reservation");
+					email($email , 'Pemesanan Lan\'s Rooms Reservation - ' . $book_date, "Dear {$email}, \n\nTerimakasih telah melakukan pemesanan ruangan ".$row['name']." :) \nSilakan konfirmasi dengan kode pemesanan: {$book_code}\n\n~Lan's Rooms Reservation");
 					header("Location: nota.php");
 					exit();
 				} else {
