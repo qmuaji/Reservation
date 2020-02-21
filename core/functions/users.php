@@ -1,8 +1,8 @@
 <?php 
-if(eregi('users.php', $_SERVER['PHP_SELF'])) {
-	header("Location: ./");
-	exit();
-}
+//if(eregi('users.php', $_SERVER['PHP_SELF'])) {
+//	header("Location: ./");
+//	exit();
+//}
 
 function hasAccess($user_id, $type){
 	$user_id = (int)$user_id;
@@ -22,7 +22,7 @@ function gantiSampulProfil($user_id, $fileTmp, $fileExtn) {
 function recover($email) {
 	$email = sanitize($email);
 	$password = substr(str_shuffle('RISKYMUAJISETYAPRANA1893'), 0, 7);
-	email($email , 'Lupa Password Lan\'s Musik Studio', "Dear {$email}, \n\nKami telah memulihkan akun kamu di Lan's Musik Studio.\n Silahkan login dengan password: {$password}\n\nSegera ganti password kamu setelah logn.\n~Lan's Musik Studio");
+	email($email , 'Lupa Password Lan\'s Rooms Reservation', "Dear {$email}, \n\nKami telah memulihkan akun kamu di Lan's Rooms Reservaton.\nSilakan login dengan password: {$password}\n\nJangan lupa segera ganti password kamu jika berhasil login.\n\n\n~Lan's Rooms Reservation");
 
 	return (mysql_query("UPDATE users SET password=sha1('$password') WHERE email='$email'")) ? true : false;
 
@@ -62,8 +62,9 @@ function registerUser($registerData) {
 	$registerData['password'] = sha1($registerData['password']);
 	$fields = implode(', ', array_keys($registerData));
 	$data 	= '\''. implode('\', \'', $registerData) .'\'';
+	$url    = "https://reservasi.qmuaji.com/activate.php?email=". $registerData['email'] . "&email_code=" . $registerData['email_code'];
 
-	email($registerData['email'], 'Aktivasi akun Lan\'s Musik Studio', "Dear ". $registerData['email'] .", \n\nAnda baru saja bergabung untuk menjadi member di Lan's Musik Studio. \nUntuk mengkonfirmasi bahwa email ini adalah email Anda, silahkan klik link berikut:\n\nhttp://localhost/myproject/Lan's Musikstudio/activate.php?email=". $registerData['email'] ."&email_code=". $registerData['email_code'] ." \n\n Jika Anda merasa tidak pernah mendaftarkan akun di Lan's Musik Studio, mohon abaikan email ini. \n\n ~Lan's Musik Studio");
+	email($registerData['email'], 'Aktivasi akun Lan\'s Rooms Reservation', "Dear ". $registerData['email'] . ",\n\nAnda baru saja bergabung untuk menjadi member di Lan's Rooms Reservation. \nUntuk mengkonfirmasi bahwa email ini adalah email Anda, silakan klik link berikut:\n". $url ."\n\n\nJika Anda merasa tidak pernah mendaftarkan akun di Lan's Rooms Reservation, mohon abaikan email ini. \n\n\n\n~Lan's Rooms Reservation");
 	return (mysql_query("INSERT INTO users ($fields) VALUES ($data)")) ? true : false;
 }
 

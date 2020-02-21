@@ -1,4 +1,6 @@
 <?php 
+date_default_timezone_set("Asia/Bangkok");
+
 if($_GET['studio_id'] && $_GET['dates']!=""){
 	$tgl = $_GET['dates'];
 	$id  = $_GET['studio_id'];
@@ -6,10 +8,14 @@ if($_GET['studio_id'] && $_GET['dates']!=""){
 		Pesan*
 		<h4>
 		<?php 
+		
 		include 'core/init.php';
 
-		$book = mysql_query("SELECT i_time FROM bookings WHERE book_date='$tgl' AND studio_id=$id");
-		$a[]="";			
+		$book       = mysql_query("SELECT i_time FROM bookings WHERE book_date='$tgl' AND studio_id=$id");
+		$a[]        = "";
+		$currTime   = strtotime(date("Y-m-d H:i"));
+		
+		
 		while($row2 = mysql_fetch_assoc($book)){
 			$a[] = $row2['i_time'];
 		}
@@ -24,16 +30,18 @@ if($_GET['studio_id'] && $_GET['dates']!=""){
 		}
 
 		for($i=10; $i<$j; $i++) {
+		    
+		    $jadwal = strtotime($tgl .' '. $i .':00');
 
-			if(!in_array($i, $a)) {
+			if(!in_array($i, $a) && ($jadwal > $currTime)) {
 				?>
-				<input type="checkbox" value="<?php echo $i ?>" id="<?php echo $i ?>" name="pesan[]">
-				<label for="<?php echo $i ?>"><?php echo $i,":00 - ",$i+1,":00" ?></label>
+				<input type="checkbox" value="<?= $i ?>" id="<?= $i ?>" name="pesan[]">
+				<label for="<?= $i ?>"><?= $i,":00 - ",$i+1,":00" ?></label>
 				<?php
 			} else {
 				?>
-				<input type="checkbox" value="" id="<?php echo $i ?>" name="x[]" disabled>
-				<label for="<?php echo $i ?>" style="color:red"><?php echo $i,":00 - ",$i+1,":00" ?></label>
+				<input type="checkbox" value="" id="<?= $i ?>" name="x[]" disabled>
+				<label for="<?= $i ?>" style="color:gainsboro"><?= $i,":00 - ",$i+1,":00" ?></label>
 				<?php
 			}			
 
@@ -42,6 +50,6 @@ if($_GET['studio_id'] && $_GET['dates']!=""){
 
 	<?php
 } else {
-	//echo "<span style='color:red'>Pilih tanggal dulu!</span>";
+	//echo "<span style='color:gainsboro'>Pilih tanggal dulu!</span>";
 }
 

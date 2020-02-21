@@ -1,13 +1,12 @@
 <?php 
-// if(eregi('init.php', $_SERVER['PHP_SELF'])) {
-// 	header("Location: ./");
-// 	exit();
-// }
+
 session_start();
-// error_reporting(0);
+error_reporting(E_ALL ^ E_DEPRECATED);
 
 require 'dbConnect.php';
+
 require 'functions/general.php';
+
 require 'functions/users.php';
 
 if(loggedIn()) {
@@ -20,9 +19,9 @@ if(loggedIn()) {
 	}
 }
 
-$alert = [];
+$alert = array();
 $currentFile = explode('/', $_SERVER['SCRIPT_NAME']);
 $currentFile = end($currentFile);
-
+date_default_timezone_set("Asia/Bangkok");
 $dateMax = date('Y-m-d', strtotime("+7 days"));
 $dateMin = date('Y-m-d');

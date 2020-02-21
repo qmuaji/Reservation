@@ -74,7 +74,6 @@ if(!empty($alert)) echo outputErrors($alert);
 		<div class="4u 12u(mobile)">
 			<div class="box	">							
 				<ul class="alt">
-				<li align="center"><h3 class="icon fa-cog"></h3></li>
 					<li><h4><a href="userSettings.php" class="icon fa-user"> <b>Informasi Akun</b></a></h4></li>					
 					<?php 
 					if (hasAccess($_SESSION['user_id'], 0)){
@@ -95,9 +94,9 @@ if(!empty($alert)) echo outputErrors($alert);
 				<form action="" method="post" autocomplete="off">			
 					<div class="row">
 						<div class="6u 12u">	
-							Email* &nbsp;<b class="icon fa-envelope-o"></b>
+							Email* 
 							<input type="email" name="email" placeholder="Email" value="<?php echo $email ?>" required maxlength="50">
-							No telepon* &nbsp;<b class="icon fa-phone"></b>
+							No telepon* 
 							<input type="text" name="tlp" placeholder="Telepon"  value="<?php echo $tlp ?>" maxlength="16">
 							Nama*
 							<input type="text" name="first_name" placeholder="Nama" value="<?php echo $first_name ?>" required minlength="3" maxlength="32">
@@ -107,7 +106,7 @@ if(!empty($alert)) echo outputErrors($alert);
 						<div class="6u 12u">	
 							Username* &nbsp;<b class="icon fa-user"></b>		
 							<input type="text" name="username" placeholder="Username" value="<?php echo $username ?>" required maxlength="16">
-							Alamat &nbsp;<b class="icon fa-road"></b>
+							Alamat 
 							<textarea name="address" placeholder="Alamat" cols="30" rows="6" maxlength="225"><?php echo $address ?></textarea>
 							<input type="submit" value="Simpan" class="fit special">				
 						</div>

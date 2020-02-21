@@ -52,12 +52,12 @@ $offset=($noPage - 1) * $batas;
 
 if(isset($_POST['cari'])){ 
   	$cari 		= trim($_POST['cari']);  
-	$konfirmasi = mysql_query("SELECT * FROM deposit, users WHERE user_confirm=1 AND users.user_id=deposit.user_id AND no_rek LIKE '%$cari%' ORDER BY trans_date DESC LIMIT $offset, $batas ");
-    $q     	  	= mysql_query("SELECT COUNT(deposit_id) FROM deposit WHERE user_confirm=1 AND no_rek LIKE '%$cari%' ORDER BY trans_date DESC");   
+	$konfirmasi = mysql_query("SELECT * FROM deposit, users WHERE users.user_id=deposit.user_id AND no_rek LIKE '%$cari%' ORDER BY trans_date DESC LIMIT $offset, $batas ");
+    $q     	  	= mysql_query("SELECT COUNT(deposit_id) FROM deposit WHERE  no_rek LIKE '%$cari%' ORDER BY trans_date DESC");   
 	?>		<?php
 }else{
 	
-	$konfirmasi = mysql_query("SELECT * FROM deposit, users WHERE user_confirm=1 AND users.user_id=deposit.user_id ORDER BY trans_date DESC LIMIT $offset, $batas ") or die (mysql_error());
+	$konfirmasi = mysql_query("SELECT * FROM deposit, users WHERE users.user_id=deposit.user_id ORDER BY trans_date DESC LIMIT $offset, $batas ") or die (mysql_error());
 	$q 			= mysql_query("SELECT COUNT(deposit_id) from deposit");
 } 
 

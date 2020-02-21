@@ -20,13 +20,13 @@ if(isset($_GET['code']) || isset($_SESSION['cetakNota'])){
 ?>
 <div class="container" style="margin-top:-30px" id="main">
 	<div class="box">
-	<h2 align="center">Lan's Musik <i class="icon fa-music"></i> Studio <br> #<?php echo $row['book_code'] ?></h2>
+	<h2 align="center">Lan's <i class="icon fa-cube"></i> Reservation <br> #<?php echo $row['book_code'] ?></h2>
 	<table>
 		<tr>
 			<td>
 				Kode Pesan <br>
 				Tgl Pesan <br>
-				Nama Studio				
+				Nama Ruangan				
 			</td>
 			<td>
 				: <?php echo $row['book_code'] ?> <br>
@@ -49,7 +49,7 @@ if(isset($_GET['code']) || isset($_SESSION['cetakNota'])){
 
 	<table class="alt" style="margin-top:-25px">
 		<tr align="center">
-			<td>Jam Latihan</td>
+			<td>Jam Sewa</td>
 			<td>Harga / jam</td>
 			<td>Total Bayar</td>
 		</tr>
@@ -69,7 +69,7 @@ if(isset($_GET['code']) || isset($_SESSION['cetakNota'])){
 		</tr>
 	</table>
 	</div>
-	<p>* Bukti pemesanan akan hangus jika tidak digunakan pada jam yang telah ditentukan!</p>
+	<sub>*Bukti pemesanan akan hangus jika tidak digunakan pada jam yang telah ditentukan!</sub>
 </div>
 
 <?php

@@ -3,7 +3,7 @@ require 'core/init.php';
 include 'includes/_header.php';
 
 $showPage 	= '';
-$batas		= 2;
+$batas		= 3;
 if (isset($_GET['page'])) $noPage = $_GET['page'];
 	else $noPage = 1;
 
@@ -33,12 +33,12 @@ $no = $offset+1;
 		while($row = mysql_fetch_assoc($studioData)){
 				$studio_id = $row['studio_id'];
 		?>
-		<div class="6u 12u(narrower)">
+		<div class="4u 12u(narrower)">
 
-			<section class="box special">
-				<span class="image featured"><img src="<?php echo $row['img'] ?>" alt="Lan's Musik" /></span>	
-				<h2><?php echo $row['name'] ?></h2>
-				<ul align="left">
+			<section class="box">
+				<span class="image featured"><img src="<?= $row['img'] ?>" alt="Lan's Reservation" /></span>
+				<h3><?= $row['name'] ?></h3>
+				<ul>
 				<?php 
 				$equips = mysql_query("SELECT equips.* FROM equips, studios WHERE equips.studio_id=studios.studio_id AND studios.studio_id=$studio_id");
 				
@@ -47,19 +47,23 @@ $no = $offset+1;
 				}
 				?>
 				</ul>
+				<h4>Rp <?= rupiah($row['price']); ?>/jam</h4>
+
 				<?php $nams = substr($row['description'], 0, 100);
 		                  $len  = strlen($nams);
-		                  if($len >= 100) echo $nams."...";
-		                  else echo $nams; 
-		             ?>
-				<h3>Rp <?php echo rupiah($row['price']); ?>/jam</h3>
+		                  if($len >= 100) echo "<sub>". $nams ."...". "</sub>";
+		                  else echo $nams;  
+		        ?>
+
 				<ul class="actions">
+				    
 				<?php 
-				(!loggedIn()) ? $red = "login.php?studio_id=$studio_id" : $red = "sewa.php?studio_id=$studio_id";
+				    (!loggedIn()) ? $red = "login.php?studio_id=$studio_id" : $red = "sewa.php?studio_id=$studio_id";
 				
 				?>
-					<li><a href="<?php echo $red?>" class="button alt icon fa-mail-reply">Pesan</a></li>
+					
 				</ul>
+				<div style="text-align:center"><a href="<?= $red?>" class="button alt icon fa-mail-reply" >Pesan</a></div>
 			</section>
 
 		</div>
@@ -100,41 +104,11 @@ $no = $offset+1;
 			</div>
 
 			<div class="6u 12u">		
-		  		<input type="text" name="cari" placeholder="Cari nama studio..">				   
+		  		<input type="text" name="cari" placeholder="Cari..">				   
 			</div>
 
 		</div>
 	</form>
-	<hr>
-	<div class="row">
-		<p>
-			Lan's Musik Studio adalah rental studio musik latihan band yang dilengkapi dengan equipment terkini. Studio kami berukuran 6x6 dan ruang operator berukuran 2x5. Equipment yang kami gunakan adalah sebagai berikut:
-		</p>
-		<div class="4u">
-			<ul>
-				<li>Allen Heath QU 24</li>
-				<li>Marshall JCM900+Cab</li>
-				<li>AMT SS10 + Marshall Cab</li>
-				<li>Ashdown ABM 500 EVO III</li>
-				<li>Ashdown Cabinet 410</li>
-				<li>Rolland RD300NX</li>
-			</ul>
-		</div> 
-		<div class="4u">
-			<ul>
-				<li>Jackson Guitar</li>
-				<li>Ibanez Guitar</li>
-				<li>Squier Bass Guitar</li>
-				<li>Pearl Vision Drumset</li>
-				<li>Double Pedal (Available upon request)</li>
-				<li>Zildjian Cymbals</li>
-			</ul>
-		</div>
-		<div class="4u">
-			<ul>
-				<li>Shure Mic</li>
-			</ul>
-		</div>		
-	</div>
+
 </div>
 <?php include 'includes/_footer.php' ?>

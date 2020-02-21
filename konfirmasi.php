@@ -201,12 +201,18 @@ $no = $offset+1;
 				if ($noPage < $jmlPage) echo "<a class='button alt small' href=$_SERVER[PHP_SELF]?page=".($noPage+1)."><span class='icon fa-chevron-right'></span></a>";
 				?>
 			</div>
+			
 		<?php
 		}
-		?>		
+		?>	
+		
 			</div>
+			<p>Nomor rekening Bank Syariah:</p><br>
+		    <h3 align="center" style="margin-top:-40px;margin-bottom:-10px">4455 45 2323244 • Qmuaji App</h3> 
 		</div>
+		
 	</div>
+	
 </div>
 
 <script language='JavaScript' type='text/javascript'>

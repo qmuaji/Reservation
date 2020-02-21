@@ -128,37 +128,8 @@ $no = $offset+1;
 			
 			if ($noPage < $jmlPage) echo "<a class='button alt small' href=$_SERVER[PHP_SELF]?page=".($noPage+1)."><span class='icon fa-chevron-right'></span></a>";
 			?>
-			<hr>
 		</div>
-		<p>
-			Lan's Musik Studio adalah rental studio musik latihan band yang dilengkapi dengan equipment terkini. Studio kami berukuran 6x6 dan ruang operator berukuran 2x5. Equipment yang kami gunakan adalah sebagai berikut:
-		</p>
-		<div class="4u">
-			<ul>
-				<li>Allen Heath QU 24</li>
-				<li>Marshall JCM900+Cab</li>
-				<li>AMT SS10 + Marshall Cab</li>
-				<li>Ashdown ABM 500 EVO III</li>
-				<li>Ashdown Cabinet 410</li>
-				<li>Rolland RD300NX</li>
-			</ul>
-		</div> 
-		<div class="4u">
-			<ul>
-				<li>Jackson Guitar</li>
-				<li>Ibanez Guitar</li>
-				<li>Squier Bass Guitar</li>
-				<li>Pearl Vision Drumset</li>
-				<li>Double Pedal (Available upon request)</li>
-				<li>Zildjian Cymbals</li>
-			</ul>
-		</div>
-		<div class="4u">
-			<ul>
-				<li>Shure Mic</li>
-			</ul>
-		</div>
-		
+
 	</div>
 </div>
 <?php include 'includes/_footer.php' ?>

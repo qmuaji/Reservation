@@ -1,12 +1,12 @@
-<?php if(eregi('_menu.php', $_SERVER['PHP_SELF'])) header("Location: ./") ?>
-	<h1><a href="./">Lan's Musik</a> Studio</h1>
+
+	<h1><a href="./">Lan's </a> Reservation</h1>
 	<div class="<?php if(loggedIn()) echo 'container' ?>">
 		<nav id="nav">
 			<ul>
 			<?php 
 			if (!isset($_SESSION['user_id'])) {
 				?>
-				<li><a href="studios.php">Studio Latihan</a></li>
+				<li><a href="studios.php">Rooms</a></li>
 				<li><a href="profiles.php">Members</a></li>
 				<li><a href="#">Pemesanan <span class="icon fa-angle-down"></span></a>
 					<ul>
@@ -17,7 +17,7 @@
 			<?php 
 			} else if(hasAccess($_SESSION['user_id'], 0)) {
 				?>
-				<li><a href="studios.php">Studio Latihan</a></li>
+				<li><a href="studios.php">Rooms</a></li>
 				<li><a href="profiles.php">Members</a></li>
 				<li><a href="#">Pemesanan <span class="icon fa-angle-down"></span></a>
 					<ul>
@@ -33,14 +33,14 @@
 			if(loggedIn()) {
 				if(hasAccess($_SESSION['user_id'], 1)) {
 					?>
-					<li><a href="a_studios.php">Data Studio</a></li>
-					<li><a href="a_equips.php">Data Peralatan</a></li>
+					<li><a href="a_studios.php">Data Ruangan</a></li>
+					<li><a href="a_equips.php">Data Fasilitas</a></li>
 					<!-- <li><a href="a_maintenances.php">Maintenance</a></li> -->
 					<li><a href="a_usersData.php">Data Pelanggan</a></li>
 					<li><a href="#">Konfirmasi <span class="icon fa-angle-down"></span></a>
 						<ul>
 							<li><a href="a_konfirm1.php">Konfirmasi Saldo</a></li>
-							<li><a href="a_konfirm2.php">Konfirmasi Pemesanan</a></li>		
+							<li><a href="a_konfirm2.php">Konfirmasi Sewa</a></li>		
 						</ul>
 					</li>
 					<li> | </li>
@@ -51,7 +51,7 @@
 					<li><a href="#">Laporan <span class="icon fa-angle-down"></span></a>
 						<ul>
 							<li><a href="a_usersData.php">Data Pelanggan</a></li>	
-							<li><a href="a_studios.php">Data Studio</a></li>	
+							<li><a href="a_studios.php">Data Ruangan</a></li>	
 							<li><a href="a_laptrans.php">Laporan Penyewaan</a></li>
 							<!-- <li><a href="caraPesan.php">Laporan Maintenance</a></li>		 -->
 							<!-- <li><a href="caraPesan.php">Laporan Laba-Rugi</a></li>		 -->

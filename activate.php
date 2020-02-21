@@ -10,17 +10,17 @@ include 'includes/_head.php';
 		require 'gabung.php';
 		?>
 			<h3>Aktivasi berhasil <i class="icon fa-smile-o"></i></h3>
-			Selamat bergabung di Lan's Musik Studio. Silahkan Log In
+			Selamat bergabung di Lan's Room Reservation. Silakan LogIn
 			<form action="" method="post">
 			<hr>
-			<h3>Lan's Musik <i class="icon fa-music"></i> Studio</h3>
+			<h3>Lan's <i class="icon fa-cube"></i> Reservation</h3>
 			<div class="box">
 			<h2>Log In</h2>
 				<input type="email" name="email" id="email" placeholder="Email Address" required maxlength="50">
 				<input type="password" name="password" id="password" placeholder="Password" required minlength="6">
 				<input type="submit" value="Log In" class="special fit">
 			</form>
-			<h5><a href="forgotpass.php">Lupa password?</a></h5>
+			<h5><a href="recover.php">Lupa password?</a></h5>
 			<?php
 	} elseif(isset($_GET['email'], $_GET['email_code']) && !empty($_GET['email_code']) && !empty($_GET['email'])) {
 		
@@ -35,7 +35,7 @@ include 'includes/_head.php';
 
 		if(!empty($alert)) {
 			?>
-		<h3>Lan's Musik <i class="icon fa-music"></i> Studio</h3>
+		<h3>Lan's <i class="icon fa-cube"></i> Reservation</h3>
 		Sepertinya ada kesalahan...
 		<div class="box">
 			<h2 style="color:red">Oops.. <i class="icon fa-frown-o"></i></h2>

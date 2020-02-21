@@ -26,7 +26,7 @@ $no = $offset+1;
 ?>
 
 <div style="margin-top:-30px" id="main" class="container">
-	<h3 class="icon fa-book"> Konfirmasi Pemesanan</h3>
+	<h3> Konfirmasi Pemesanan</h3>
 
 	<form action="" method="POST">
 		<div class="row">			
@@ -76,22 +76,22 @@ $no = $offset+1;
 		$expire_dt = new DateTime($row['book_date']);
 		
 		if ($expire_dt >= $today_dt) {
-			?><a href="cetakNota.php?code=<?php echo md5($row['book_code']) ?>" class="button fit icon fa-print" target="blank">Cetak</a><?php
+			?><a href="cetakNota.php?code=<?= md5($row['book_code']) ?>" class="button fit icon fa-print" target="blank"> Cetak</a><?php
 		} else {
-			?><b style="color:green">Selesai</b> <?php
+			?><b style="color:green">Selesai </b> | <a href="cetakNota.php?code=<?= md5($row['book_code']) ?>" class="icon fa-print" target="blank"> Cetak</a> <?php
 		}
 		?>
 		<table>
 		<tr>
-			<td width="130px">
+			<td width="180px">
 				Kode Pesan <br>
 				Tgl Pesan <br>
-				Nama Studio				
+				Nama Ruangan				
 			</td>
 			<td>
-				: <?php echo $row['book_code'] ?> <br>
-				: <?php echo date('d F, Y', strtotime($row['book_date'])) ?>  <br>
-				: <?php echo $row['studio_name'] ?>
+				: <?= $row['book_code'] ?> <br>
+				: <?= date('d F, Y', strtotime($row['book_date'])) ?>  <br>
+				: <?= $row['studio_name'] ?>
 				
 			</td>
 			
@@ -101,16 +101,16 @@ $no = $offset+1;
 				Email <br>				
 			</td>
 			<td>
-				: <?php echo $row['first_name'] ?> <br>
-				: <?php echo $row['tlp'] ?> <br>
-				: <?php echo $row['email'] ?>				
+				: <?= $row['first_name'] ?> <br>
+				: <?= $row['tlp'] ?> <br>
+				: <?= $row['email'] ?>				
 			</td>
 		</tr>
 	</table>
 
 	<table class="alt" style="margin-top:-25px">
 		<tr align="center">
-			<td>Jam Latihan</td>
+			<td>Jam Sewa</td>
 			<td>Harga / jam (Rp)</td>
 			<td>Total Bayar (Rp)</td>
 		</tr>
@@ -124,9 +124,9 @@ $no = $offset+1;
 			?>
 			</td>
 			<td>
-				<?php echo rupiah($row['price']) ." X ".$row['q']?>
+				<?= rupiah($row['price']) ." X ".$row['q']?>
 			</td>
-			<td><?php echo rupiah($row['total'])?></td>	
+			<td><?= rupiah($row['total'])?></td>	
 		</tr>
 	</table>
 

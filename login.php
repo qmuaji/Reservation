@@ -9,7 +9,7 @@ include 'includes/_head.php';
 	<?php if(!empty($alert)) echo outputErrors($alert) ?>
 
 	<div id="login">
-		<h3>Lan's Musik <i class="icon fa-music"></i> Studio</h3>					
+		<h3>Lan's <i class="icon fa-cube"></i> Reservation</h3>					
 		<div class="box">		
 			<form action="" method="post">
 			<h2>Log In</h2>

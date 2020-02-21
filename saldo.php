@@ -57,7 +57,6 @@ if(!empty($alert)) echo outputErrors($alert);
 		<div class="4u 12u(mobile)">
 			<div class="box	">							
 				<ul class="alt">
-				<li align="center"><h3 class="icon fa-cog"></h3></li>
 					<li><h4><a href="userSettings.php" class="icon fa-user"> Informasi Akun</a></h4></li>
 					<li><h4><a href="saldo.php" class="icon fa-money"><b>&nbsp; Isi Saldo</b></a></h4></li>
 					<li><h4><a href="konfirmasi.php" class="icon fa-check"> Konfirmasi Bayar</a></h4></li>
@@ -68,32 +67,32 @@ if(!empty($alert)) echo outputErrors($alert);
 			
 		<div class="8u 12u(mobile)">
 			<div class="box">
-				<h3 class="icon fa-money">&nbsp; Isi Saldo</h3>
+				<h3>Isi Saldo</h3>
 			<?php 
 			if(isset($_SESSION['add_saldo']) && !empty($_SESSION['add_saldo'])) {
 				?>		
 				<table class="alt">
 					<tr align="right">
 						<td>Isi Saldo </td>
-						<td><?php echo rupiah($_SESSION['add_saldo']) ?></td>
+						<td><?= rupiah($_SESSION['add_saldo']) ?></td>
 					</tr>
 					<tr align="right">
 						<td>Unik Transfer </td>
-						<td><?php echo $user_id ?></td>
+						<td><?= $user_id ?></td>
 					</tr>
 					<tr align="right">
 						<td>Total Bayar </td>
-						<td><?php echo rupiah($_SESSION['add_saldo']) ?></td>
+						<td><?= rupiah($_SESSION['add_saldo']) ?></td>
 					</tr>
 				</table>
 				Total bayar untuk tambah saldo adalah: <br>
-				<h2 align="center" style="color:green; margin-top:-10px; margin-bottom:-5px;"><?php echo rupiah($_SESSION['add_saldo']) ?></h2>
+				<h2 align="center" style="color:green; margin-top:-10px; margin-bottom:-5px;"><?= rupiah($_SESSION['add_saldo']) ?></h2>
 				<a href='?ok' class="button fit special">Konfirmasi</a>
 				<a href='?batal' class="button fit alt">Batal</a>
 				<?php 
 			} else {
 			 ?>	Jumlah saldo kamu
-				<h3><?php echo rupiah($saldo) ?></h3>
+				<h3><?= rupiah($saldo) ?></h3>
 				<hr>
 				<form action="" method="post" autocomplete="off">			
 					<div class="row">
@@ -112,15 +111,15 @@ if(!empty($alert)) echo outputErrors($alert);
 						<div class="6u 12u">	
 							Captcha* <a href='javascript: refreshCaptcha();'><i class="icon fa-refresh"></i></a>
 							<input type="text" name="captcha" placeholder="Kode Captcha" required maxlength="8">
-							<img  src="core/captcha.php?rand=<?php echo rand(); ?>" id='captchaimg' > 							
+							<img  src="core/captcha.php?rand=<?= rand(); ?>" id='captchaimg' > 							
 						</div>	
 					</div>		
 				</form>
 			<?php 
 			} ?>
 			</div>		
-			<p>Transfer melalui rekening Bank BCA dengan nomor rekening: <h2 align="center" style="margin-top:-40px;margin-bottom:-10px">4455-45-2323244</h2></p>
-			<p>Atas nama: <h2 align="center" style="margin-top:-40px;margin-bottom:-10px">Risky Muaji</h2></p>
+		    <p>Nomor rekening Bank Syariah:</p><br>
+		    <h3 align="center" style="margin-top:-40px;margin-bottom:-10px">4455 45 2323244 • Qmuaji App</h3> 
 		</div>
 	</div>
 </div>
